@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Jubaer Hossain | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{
+  background:#070b12;
+  color:#e6edf3;
+  overflow-x:hidden;
+}
+
+header{
+  position:fixed;
+  width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(10px);
+  background:rgba(7,11,18,0.6);
+  z-index:1000;
+}
+
+header h1{
+  font-weight:700;
+  letter-spacing:2px;
+}
+header h1 span{
+  color:#00e5ff;
+}
+
+nav a{
+  text-decoration:none;
+  color:#9ca3af;
+  margin-left:25px;
+  transition:.3s;
+}
+nav a:hover{color:#00e5ff}
+
+section{
+  padding:120px 8%;
+}
+
+.hero{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  min-height:100vh;
+}
+
+.hero-text h2{
+  font-size:52px;
+  font-weight:800;
+  line-height:1.2;
+}
+.hero-text h2 span{
+  color:#00e5ff;
+}
+.hero-text p{
+  margin-top:20px;
+  max-width:500px;
+  color:#9ca3af;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:12px 28px;
+  border-radius:8px;
+  background:#00e5ff;
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s;
+}
+.btn:hover{
+  box-shadow:0 0 20px #00e5ff;
+}
+
+.hero-img{
+  position:relative;
+}
+.hero-img img{
+  width:320px;
+  border-radius:50%;
+  border:5px solid #00e5ff;
+  box-shadow:0 0 40px rgba(0,229,255,0.4);
+}
+
+.floating{
+  position:absolute;
+  border:1px solid rgba(0,229,255,0.4);
+  border-radius:50%;
+}
+.circle1{width:80px;height:80px;top:-20px;left:-20px}
+.circle2{width:120px;height:120px;bottom:-30px;right:-30px}
+
+.stats{
+  display:flex;
+  justify-content:space-around;
+  text-align:center;
+  background:#0c111a;
+  padding:60px 0;
+}
+.stat h3{
+  font-size:40px;
+  color:#00e5ff;
+}
+.stat p{color:#9ca3af}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+.section-title h2{
+  font-size:40px;
+}
+.section-title span{
+  color:#00e5ff;
+}
+
+.card{
+  background:#0c111a;
+  padding:30px;
+  border-radius:12px;
+  margin-bottom:30px;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,0.05);
+}
+.card:hover{
+  transform:translateY(-5px);
+  border-color:#00e5ff;
+}
+
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+
+.skill-bar{
+  margin:15px 0;
+}
+.skill-bar span{
+  display:block;
+  margin-bottom:5px;
+}
+.progress{
+  height:8px;
+  background:#1a1f2b;
+  border-radius:10px;
+  overflow:hidden;
+}
+.progress div{
+  height:100%;
+  background:#00e5ff;
+}
+
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  background:#0c111a;
+  border:1px solid rgba(255,255,255,0.1);
+  color:white;
+  border-radius:6px;
+}
+
+button{
+  padding:12px;
+  border:none;
+  background:#00e5ff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:#0c111a;
+  color:#9ca3af;
+}
+
+@media(max-width:900px){
+  .hero{flex-direction:column;text-align:center}
+  .contact{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>MJH<span>.</span></h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>MD JUBAER <span>HOSSAIN</span></h2>
+    <p>IT & Data Management Professional | Aspiring Data Scientist transforming data into smart solutions.</p>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </div>
+  <div class="hero-img">
+    <img src="your-photo.jpg" alt="Profile">
+    <div class="floating circle1"></div>
+    <div class="floating circle2"></div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><h3>3+</h3><p>Years Experience</p></div>
+  <div class="stat"><h3>3</h3><p>Degrees</p></div>
+  <div class="stat"><h3>8+</h3><p>Technical Skills</p></div>
+</div>
+
+<section id="about">
+  <div class="section-title">
+    <h2>About <span>Me</span></h2>
+  </div>
+  <div class="card">
+    To leverage my IT experience and grow into data science and cybersecurity roles while contributing impactful solutions.
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-title">
+    <h2>Technical <span>Skills</span></h2>
+  </div>
+  <div class="skills">
+    <div class="card">
+      <h3>Programming</h3>
+      <div class="skill-bar">
+        <span>Python</span>
+        <div class="progress"><div style="width:65%"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>C</span>
+        <div class="progress"><div style="width:60%"></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Database</h3>
+      <div class="skill-bar">
+        <span>MySQL</span>
+        <div class="progress"><div style="width:75%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">
+    <h2>Let's <span>Connect</span></h2>
+  </div>
+
+  <div class="contact">
+    <div>
+      <p>Email: mdjubaerh8@gmail.com</p>
+      <p>Phone: +8801893032710</p>
+      <p>Location: Rajshahi, Bangladesh</p>
+    </div>
+
+    <form>
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Email Address">
+      <textarea rows="5" placeholder="Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2026 Md Jubaer Hossain
+</footer>
+
+</body>
+</html>
