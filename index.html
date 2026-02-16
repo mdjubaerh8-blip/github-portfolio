@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Jubaer Hossain | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#0d1117;
+  color:#e6edf3;
+  scroll-behavior:smooth;
+}
+
+header{
+  position:fixed;
+  width:100%;
+  padding:20px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(10px);
+  background:rgba(13,17,23,0.7);
+  z-index:1000;
+}
+
+header h1{
+  font-size:20px;
+  font-weight:800;
+  background:linear-gradient(90deg,#38bdf8,#8b5cf6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+nav a{
+  text-decoration:none;
+  color:#e6edf3;
+  margin-left:25px;
+  font-weight:500;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#38bdf8;
+}
+
+section{
+  padding:120px 10%;
+}
+
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.hero h2{
+  font-size:56px;
+  font-weight:800;
+  line-height:1.2;
+}
+
+.hero span{
+  background:linear-gradient(90deg,#38bdf8,#8b5cf6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:20px;
+  max-width:600px;
+  color:#9ca3af;
+}
+
+.btn{
+  margin-top:30px;
+  display:inline-block;
+  padding:12px 25px;
+  border-radius:8px;
+  background:linear-gradient(90deg,#38bdf8,#8b5cf6);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(139,92,246,0.4);
+}
+
+.section-title{
+  font-size:32px;
+  margin-bottom:40px;
+  font-weight:700;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:15px;
+  backdrop-filter:blur(10px);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  background:rgba(255,255,255,0.08);
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  background:#111827;
+  color:#9ca3af;
+}
+
+@media(max-width:768px){
+  .hero h2{
+    font-size:36px;
+  }
+  nav{
+    display:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Md Jubaer</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Hi, I'm <span>Jubaer</span><br>Data & IT Professional</h2>
+  <p>Tech enthusiast focused on Data Science, AI, Cybersecurity and modern analytics solutions.</p>
+  <a href="https://github.com/mdjubaerh8-blip" target="_blank" class="btn">View GitHub</a>
+</section>
+
+<section id="about">
+  <h3 class="section-title">About Me</h3>
+  <div class="card">
+    <p>
+      I am based in Rajshahi, Bangladesh. Passionate about technology, 
+      currently preparing for BCS while building strong foundations in 
+      Data Science, Programming and Cybersecurity.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <h3 class="section-title">Skills</h3>
+  <div class="grid">
+    <div class="card">Python, C, Java</div>
+    <div class="card">MySQL & SQL</div>
+    <div class="card">Excel & Google Sheets</div>
+    <div class="card">Networking & Reporting</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h3 class="section-title">Projects</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>Data Dashboard</h4>
+      <p>Interactive Excel & Sheets reporting dashboards.</p>
+    </div>
+    <div class="card">
+      <h4>Portfolio Website</h4>
+      <p>Modern responsive GitHub-hosted portfolio.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h3 class="section-title">Contact</h3>
+  <div class="card">
+    <p>Email: mdjubaerh8@gmail.com</p>
+    <p>Phone: +8801893032710</p>
+    <p>LinkedIn: 
+      <a href="https://www.linkedin.com/in/md-jubaer-hossain-4791953ab/" target="_blank" style="color:#38bdf8;">
+        View Profile
+      </a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Md Jubaer Hossain | Built with passion 🚀
+</footer>
+
+</body>
+</html>
