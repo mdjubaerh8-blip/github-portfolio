@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Jubaer Hossain | Portfolio</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0b0f16;
+            --bg-card: #11161d;
+            --accent-color: #0dcaf0; /* Cyan/Teal */
+            --text-light: #e0e0e0;
+            --text-muted: #a0a0a0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .text-accent {
+            color: var(--accent-color) !important;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--bg-dark);
+            padding: 1.5rem 0;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-weight: 500;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 5rem 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        .hero-role {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            border-right: 2px solid var(--text-muted); /* Visual mimicry of the pipe | */
+            display: inline-block;
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+        
+        /* Buttons */
+        .btn-custom {
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+            transition: all 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+        .btn-outline-custom {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--text-muted);
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .btn-outline-custom:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Profile Image */
+        .profile-img-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #1a202c;
+            /* The Glow Effect */
+            box-shadow: 0 0 40px rgba(13, 202, 240, 0.2); 
+            z-index: 2;
+        }
+        /* Decorative Circles */
+        .circle-decor {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(13, 202, 240, 0.3);
+        }
+        .c-1 { top: 0; left: 10%; width: 50px; height: 50px; }
+        .c-2 { bottom: 0; right: 10%; width: 70px; height: 70px; }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .stat-icon {
+            font-size: 2rem;
+            color: #1c2a36; /* Darker accent for icon box */
+            background: #11161d;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: inline-block;
+            border: 1px solid #2a3038;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .plus { vertical-align: super; font-size: 1.5rem; }
+
+        /* Section Generals */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-subtitle {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .section-header {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        /* Cards */
+        .custom-card {
+            background-color: var(--bg-card);
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        .custom-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(13, 202, 240, 0.1);
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        /* Timeline / Resume */
+        .resume-item {
+            background-color: var(--bg-card);
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            border-left: 4px solid var(--accent-color);
+        }
+        .resume-date {
+            background-color: #1c2530;
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            float: right;
+        }
+        .resume-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.2rem;
+        }
+        .resume-place {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .resume-list li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills */
+        .progress {
+            height: 8px;
+            background-color: #2d3748;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .progress-bar {
+            background-color: var(--accent-color);
+            border-radius: 4px;
+        }
+        .skill-item { margin-bottom: 1.5rem; }
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Form */
+        .form-control, .form-control:focus {
+            background-color: #1a202c;
+            border: 1px solid #2d3748;
+            color: white;
+            padding: 0.8rem;
+        }
+        .form-control::placeholder { color: #6c757d; }
+        .contact-box {
+            background-color: #1a202c;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #11161d;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid #1f2937;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">MJH<span class="text-accent">.</span></a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <span class="text-accent fw-bold small">WELCOME TO MY PORTFOLIO</span>
+                    <h1 class="hero-title text-white mt-2">
+                        MD JUBAER <br> 
+                        <span class="text-accent">HOSSAIN</span>
+                    </h1>
+                    <div class="my-4">
+                        <span class="hero-role">IT & Data Management Professional</span>
+                        <span class="text-white-50">Aspiring Data Scientist</span>
+                    </div>
+                    <p class="text-muted mb-4 pe-lg-5">
+                        Transforming complex data challenges into efficient solutions through technical expertise, analytical skills, and a passion for continuous learning.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#contact" class="btn btn-custom">Get in Touch</a>
+                        <a href="#about" class="btn btn-outline-custom">Learn More</a>
+                    </div>
+                    
+                    <div class="mt-5 d-flex gap-3 text-muted">
+                        <i class="fa-regular fa-envelope"></i>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-5 mt-lg-0">
+                    <div class="profile-img-container">
+                        <div class="circle-decor c-1"></div>
+                        <img src="https://via.placeholder.com/350" alt="Md Jubaer Hossain" class="profile-img">
+                        <div class="circle-decor c-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="stat-icon"><i class="fa-regular fa-calendar"></i></div>
+                    <div class="stat-number">3<span class="plus">+</span></div>
+                    <div class="small text-muted">Years Experience</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-icon"><i class="fa-solid fa-medal"></i></div>
+                    <div class="stat-number">3</div>
+                    <div class="small text-muted">Degrees & Diplomas</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="stat-number">5<span class="plus">+</span></div>
+                    <div class="small text-muted">Key Achievements</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="stat-number">8<span class="plus">+</span></div>
+                    <div class="small text-muted">Technical Skills</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-subtitle">About Me</span>
+                <h2 class="section-header">My Journey <span class="serif-font" style="font-style: italic;">&</span> <span class="text-accent">Experience</span></h2>
+            </div>
+
+            <div class="card custom-card mb-5">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="card-icon me-3"><i class="fa-solid fa-bullseye"></i></div>
+                    <h4 class="mb-0 serif-font">Career Objective</h4>
+                </div>
+                <p class="text-muted">
+                    To leverage my experience in IT operations, data handling, and resource management gained at Medipath Diagnostic Complex, along with my academic background in Computer Technology and ongoing B.Sc. in Computer Science & Engineering. I aim to grow into a data science professional by applying my technical expertise to deliver efficient solutions.
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="card-icon me-3 mb-0"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3 class="serif-font mb-0">Education</h3>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="resume-date">Present</span>
+                        <h5 class="resume-title">B.Sc. in Computer Science & Engineering</h5>
+                        <p class="resume-place">North Bengal International University</p>
+                        <p class="text-accent small fw-bold">Ongoing</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="resume-date">2023</span>
+                        <h5 class="resume-title">Diploma in Computer Technology</h5>
+                        <p class="resume-place">Bangladesh Polytechnic Institute</p>
+                        <p class="text-accent small fw-bold">CGPA 3.78/4</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="resume-date">2018</span>
+                        <h5 class="resume-title">SSC Vocational (Computer & IT)</h5>
+                        <p class="resume-place">Rajshahi Court Technical And Business Management College</p>
+                        <p class="text-accent small fw-bold">GPA 4.39/5</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="card-icon me-3 mb-0"><i class="fa-solid fa-briefcase"></i></div>
+                        <h3 class="serif-font mb-0">Work Experience</h3>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="resume-date">Feb 2023 – Jan 2026</span>
+                        <h5 class="resume-title">IT Executive</h5>
+                        <p class="resume-place">Medipath Diagnostic Complex, Rajshahi</p>
+                        <ul class="resume-list ps-3">
+                            <li>Improved accuracy and security of patient information through efficient data management.</li>
+                            <li>Streamlined daily sales and earnings reports for faster decision-making.</li>
+                            <li>Optimized company resources and purchase tracking, reducing operational delays.</li>
+                            <li>Contributed to project planning and LIMS enhancements.</li>
+                            <li>Resolved IT and lab equipment issues promptly.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-subtitle">My Expertise</span>
+                <h2 class="section-header">Technical <span class="text-accent">Skills</span></h2>
+                <p class="text-muted mt-2">A comprehensive overview of my technical competencies and proficiency levels.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="card-icon me-3 mb-0"><i class="fa-regular fa-file-excel"></i></div>
+                            <h4 class="serif-font mb-0">Data & Reporting</h4>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header"><span>MS Excel</span><span>90%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header"><span>Google Sheets</span><span>85%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header"><span>Data Analysis</span><span>75%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 75%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="card-icon me-3 mb-0"><i class="fa-solid fa-database"></i></div>
+                            <h4 class="serif-font mb-0">Database</h4>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header"><span>MySQL</span><span>75%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 75%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header"><span>SQL Basics</span><span>70%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header"><span>LIMS</span><span>80%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="card-icon me-3 mb-0"><i class="fa-solid fa-code"></i></div>
+                            <h4 class="serif-font mb-0">Programming</h4>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header"><span>Python</span><span>65%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 65%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header"><span>C</span><span>60%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header"><span>Java</span><span>55%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 55%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="card-icon me-3 mb-0"><i class="fa-solid fa-network-wired"></i></div>
+                            <h4 class="serif-font mb-0">IT Infrastructure</h4>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header"><span>Networking</span><span>80%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header"><span>Troubleshooting</span><span>85%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header"><span>System Maintenance</span><span>80%</span></div>
+                            <div class="progress"><div class="progress-bar" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <h4 class="serif-font mb-4">Additional Expertise</h4>
+                <div class="d-flex justify-content-center flex-wrap gap-3">
+                    <span class="badge rounded-pill border border-secondary p-3 fw-normal text-light"><i class="fa-solid fa-wrench me-2"></i> IT Support</span>
+                    <span class="badge rounded-pill border border-secondary p-3 fw-normal text-light"><i class="fa-solid fa-chart-bar me-2"></i> Data Analysis (Pandas, NumPy)</span>
+                    <span class="badge rounded-pill border border-secondary p-3 fw-normal text-light"><i class="fa-regular fa-lightbulb me-2"></i> Project Planning</span>
+                    <span class="badge rounded-pill border border-secondary p-3 fw-normal text-light"><i class="fa-solid fa-server me-2"></i> Resource Management</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-subtitle">Portfolio</span>
+                <h2 class="section-header">Featured <span class="text-accent">Projects</span></h2>
+            </div>
+            
+            <div class="custom-card text-center py-5">
+                <div class="mb-4" style="font-size: 3rem; color: #2d3748;">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <h3 class="serif-font">Projects Coming Soon</h3>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    I'm currently working on exciting projects that showcase my skills in data science, programming, and IT solutions. Check back soon to see my latest work!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-header">Let's <span class="text-accent">Connect</span></h2>
+                <p class="text-muted mt-2">Have a question or want to work together? Feel free to reach out!</p>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <div class="contact-box">
+                        <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+                        <div>
+                            <div class="small text-muted">Email</div>
+                            <div class="fw-bold">mdjubaerh8@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="contact-box">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <div class="small text-muted">Phone</div>
+                            <div class="fw-bold">+8801893032710</div>
+                        </div>
+                    </div>
+                    <div class="contact-box">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <div class="small text-muted">Location</div>
+                            <div class="fw-bold">Rajshahi, Bangladesh</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <p>Find me on</p>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-outline-dark text-light border-secondary"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="btn btn-outline-dark text-light border-secondary"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 p-3 rounded" style="background-color: #1a202c; border: 1px solid #2d3748;">
+                        <small class="text-muted d-block mb-2">Want to reach out directly?</small>
+                        <a href="mailto:mdjubaerh8@gmail.com" class="text-accent text-decoration-none"><i class="fa-regular fa-envelope me-2"></i> mdjubaerh8@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="custom-card">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Your Name</label>
+                                    <input type="text" class="form-control" placeholder="John Doe">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Email Address</label>
+                                    <input type="email" class="form-control" placeholder="john@example.com">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Subject</label>
+                                    <input type="text" class="form-control" placeholder="Project Discussion">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Message</label>
+                                    <textarea class="form-control" rows="5" placeholder="Tell me about your project or inquiry..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-custom w-100"><i class="fa-regular fa-paper-plane me-2"></i> Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Md Jubaer Hossain. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
