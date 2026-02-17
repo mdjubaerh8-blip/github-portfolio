@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jubaer Hossain - Personal Portfolio</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --body-bg: #212428;
+            --card-bg: linear-gradient(145deg, #1e2024, #23272b);
+            --card-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+            --primary-color: #ff014f; /* The red/pink accent from the screenshots */
+            --text-heading: #ffffff;
+            --text-body: #c4cfde;
+            --nav-link: #c4cfde;
+            --border-color: #121415;
+        }
+
+        body {
+            background-color: var(--body-bg);
+            color: var(--text-body);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-heading);
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { color: var(--primary-color); }
+
+        /* --- Navbar --- */
+        .navbar {
+            background-color: var(--body-bg);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            color: var(--text-heading) !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .nav-link {
+            color: var(--nav-link) !important;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* --- Global Components --- */
+        .subtitle {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-size: 60px;
+            font-weight: 700;
+            color: var(--text-body);
+            margin-bottom: 50px;
+        }
+        .section-title span { color: var(--text-heading); }
+
+        /* Neumorphism Card Style */
+        .feature-card, .resume-card, .portfolio-card, .contact-card, .social-btn {
+            background: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            border-radius: 10px;
+            padding: 35px;
+            transition: 0.4s;
+            height: 100%;
+        }
+        .feature-card:hover, .resume-card:hover, .portfolio-card:hover, .social-btn:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(145deg, #23272b, #1e2024);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 80px 0;
+            border-bottom: 1px solid #121415;
+        }
+        .hero-text h1 {
+            font-size: 60px;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+        .hero-desc {
+            font-size: 16px;
+            line-height: 30px;
+            color: var(--text-body);
+            padding-right: 16%;
+            margin-bottom: 50px;
+        }
+        .social-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .social-icons-group {
+            display: flex;
+            gap: 20px;
+        }
+        .social-btn {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            font-size: 20px;
+        }
+        .hero-img-box {
+            background: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            border-radius: 10px;
+            padding: 20px;
+            height: 100%;
+            min-height: 500px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero-img-box img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+
+        /* --- Features Section --- */
+        .features-section { padding: 100px 0; border-bottom: 1px solid #121415; }
+        .feature-card i {
+            font-size: 45px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+        .feature-card h4 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .feature-card p {
+            font-size: 16px;
+            line-height: 28px;
+        }
+
+        /* --- Resume Section --- */
+        .resume-section { padding: 100px 0; border-bottom: 1px solid #121415; }
+        .resume-nav {
+            justify-content: center;
+            margin-bottom: 60px;
+            background: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            border-radius: 10px;
+            padding: 0;
+            display: inline-flex;
+        }
+        .resume-nav .nav-link {
+            flex: 1;
+            color: var(--text-heading) !important;
+            padding: 30px 40px;
+            margin: 0;
+            border-radius: 10px;
+            transition: 0.4s;
+        }
+        .resume-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            background: linear-gradient(145deg, #1e2024, #23272b);
+            box-shadow: inset 5px 5px 10px #1c1e22, inset -5px -5px 10px #262a2e;
+        }
+        .resume-col-title {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .resume-main-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        .resume-card {
+            margin-bottom: 30px;
+            border-left: 5px solid transparent;
+        }
+        .resume-card:hover {
+            border-left: 5px solid var(--primary-color);
+        }
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .resume-card h4 { font-size: 24px; margin-bottom: 5px; }
+        .resume-card span { font-size: 14px; color: var(--text-body); }
+        .badge-custom {
+            color: var(--primary-color);
+            background: var(--body-bg);
+            box-shadow: var(--card-shadow);
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        /* --- Portfolio Section --- */
+        .portfolio-section { padding: 100px 0; border-bottom: 1px solid #121415; }
+        .portfolio-card { padding: 25px; }
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: 0.4s;
+        }
+        .portfolio-card:hover .portfolio-img { transform: scale(1.03); }
+        .portfolio-cat {
+            color: var(--primary-color);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .portfolio-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .portfolio-title-row h5 {
+            font-size: 24px;
+            margin: 0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .portfolio-title-row h5:hover { color: var(--primary-color); }
+        .like-count { font-size: 14px; }
+
+        /* --- Contact Section --- */
+        .contact-section { padding: 100px 0; border-bottom: 1px solid #121415; }
+        .contact-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        .form-control {
+            background-color: #191b1e;
+            border: 0;
+            box-shadow: inset 2px 2px 5px #0e1012, inset -2px -2px 5px #24282c;
+            color: var(--text-body);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .form-control:focus {
+            background-color: #191b1e;
+            box-shadow: inset 2px 2px 5px #0e1012, inset -2px -2px 5px #24282c;
+            border: 1px solid var(--primary-color);
+            color: #fff;
+        }
+        .btn-submit {
+            background: var(--card-bg);
+            box-shadow: var(--card-shadow);
+            color: var(--primary-color);
+            font-weight: 600;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(145deg, #23272b, #1e2024);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-body);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero-text h1 { font-size: 40px; }
+            .hero-img-box { margin-top: 50px; min-height: 300px; }
+            .section-title { font-size: 40px; }
+            .resume-nav { flex-direction: column; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">INBIO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 hero-text">
+                    <span class="subtitle">WELCOME TO MY WORLD</span>
+                    <h1>Hi, I'm <span style="color: var(--primary-color);">Jubaer Hossain</span><br>
+                    <span class="typewriter-text">a Developer.</span></h1>
+                    <p class="hero-desc">
+                        I use animation as a third dimension by which to simplify experiences and guiding thro each and every interaction. I’m not adding motion just to spruce things up, but doing it in ways that.
+                    </p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span class="social-label">Find With Me</span>
+                            <div class="social-icons-group">
+                                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4 mt-md-0">
+                            <span class="social-label">Best Skill On</span>
+                            <div class="social-icons-group">
+                                <a href="#" class="social-btn"><i class="fab fa-figma"></i></a>
+                                <a href="#" class="social-btn"><i class="fab fa-react"></i></a>
+                                <a href="#" class="social-btn"><i class="fab fa-wordpress"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="hero-img-box">
+                        <img src="https://via.placeholder.com/400x500/212428/ffffff?text=Jubaer+Hossain" alt="Jubaer Hossain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <span class="subtitle">FEATURES</span>
+            <h2 class="section-title">What I Do</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-bars"></i>
+                        <h4>Business Strategy</h4>
+                        <p>I throw myself down among the tall grass by the trickling stream and, as I lie close to the earth.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-book-open"></i>
+                        <h4>App Development</h4>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-tv"></i>
+                        <h4>App Development</h4>
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Mobile App</h4>
+                        <p>Always free from repetition, injected humour, or non-characteristic words etc.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fab fa-chromecast"></i>
+                        <h4>CEO Marketing</h4>
+                        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <i class="fas fa-globe"></i>
+                        <h4>Personal Portfolio</h4>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="container text-center">
+            <span class="subtitle">VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK</span>
+            <h2 class="section-title">My <span>Portfolio</span></h2>
+            
+            <div class="row g-4 text-start">
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/400x300/1c1e22/888888?text=Social+App" class="portfolio-img" alt="Project">
+                        <span class="portfolio-cat">Social Application</span>
+                        <div class="portfolio-title-row">
+                            <h5>Social Media App</h5>
+                            <span class="like-count"><i class="far fa-heart"></i> 600</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/400x300/1c1e22/888888?text=Web+Design" class="portfolio-img" alt="Project">
+                        <span class="portfolio-cat">Web Development</span>
+                        <div class="portfolio-title-row">
+                            <h5>Web Design</h5>
+                            <span class="like-count"><i class="far fa-heart"></i> 750</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/400x300/1c1e22/888888?text=Mobile+App" class="portfolio-img" alt="Project">
+                        <span class="portfolio-cat">Mobile App</span>
+                        <div class="portfolio-title-row">
+                            <h5>Mobile App</h5>
+                            <span class="like-count"><i class="far fa-heart"></i> 600</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/400x300/1c1e22/888888?text=Web+Design" class="portfolio-img" alt="Project">
+                        <span class="portfolio-cat">Web Development</span>
+                        <div class="portfolio-title-row">
+                            <h5>Web Design</h5>
+                            <span class="like-count"><i class="far fa-heart"></i> 200</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/400x300/1c1e22/888888?text=Web+Design" class="portfolio-img" alt="Project">
+                        <span class="portfolio-cat">Web Development</span>
+                        <div class="portfolio-title-row">
+                            <h5>Web Design</h5>
+                            <span class="like-count"><i class="far fa-heart"></i> 230</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-card">
+                        <img src="https://via.placeholder.com/400x300/1c1e22/888888?text=Web+Design" class="portfolio-img" alt="Project">
+                        <span class="portfolio-cat">Web Development</span>
+                        <div class="portfolio-title-row">
+                            <h5>Web Design</h5>
+                            <span class="like-count"><i class="far fa-heart"></i> 800</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="subtitle">3+ YEARS OF EXPERIENCE</span>
+                <h2 class="section-title">My <span>Resume</span></h2>
+            </div>
+
+            <ul class="nav nav-pills resume-nav" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#education">Education</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#skills">Professional Skills</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#experience">Experience</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#interview">Interview</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="education">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <span class="resume-col-title">1998 - 2010</span>
+                            <h3 class="resume-main-title">Education Quality</h3>
+                            
+                            <div class="resume-card">
+                                <div class="resume-header">
+                                    <div>
+                                        <h4>BSc in Computer Science</h4>
+                                        <span>University of DVI (2006 - 2010)</span>
+                                    </div>
+                                    <span class="badge-custom">3.90/4</span>
+                                </div>
+                                <p>The training provided by universities in order to prepare people to work in various sectors of the economy or areas of culture.</p>
+                            </div>
+
+                            <div class="resume-card">
+                                <div class="resume-header">
+                                    <div>
+                                        <h4>AS - Science & Information</h4>
+                                        <span>SuperKing College (2001 - 2005)</span>
+                                    </div>
+                                    <span class="badge-custom">4.75/5</span>
+                                </div>
+                                <p>Higher education is tertiary education leading to award of an academic degree. Higher education, also called post-secondary education.</p>
+                            </div>
+
+                            <div class="resume-card">
+                                <div class="resume-header">
+                                    <div>
+                                        <h4>Secondary School Education</h4>
+                                        <span>Kingstar Secondary School (1998 - 2000)</span>
+                                    </div>
+                                    <span class="badge-custom">5.00/5</span>
+                                </div>
+                                <p>Secondary education or post-primary education covers two phases on the International Standard Classification of Education scale.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <span class="resume-col-title">2008 - 2026</span>
+                            <h3 class="resume-main-title">Job Experience</h3>
+                            
+                            <div class="resume-card">
+                                <div class="resume-header">
+                                    <div>
+                                        <h4>Sr. Software Engineer</h4>
+                                        <span>Google Out Tech (2017 - Present)</span>
+                                    </div>
+                                    <span class="badge-custom">USA</span>
+                                </div>
+                                <p>Google’s hiring process is an important part of our culture. Googlers care deeply about their teams and the people who make them up.</p>
+                            </div>
+
+                            <div class="resume-card">
+                                <div class="resume-header">
+                                    <div>
+                                        <h4>Web Developer</h4>
+                                        <span>Adobe (2015 - 2017)</span>
+                                    </div>
+                                    <span class="badge-custom">UK</span>
+                                </div>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                            </div>
+
+                            <div class="resume-card">
+                                <div class="resume-header">
+                                    <div>
+                                        <h4>Best Developer</h4>
+                                        <span>University of Design (2008 - 2010)</span>
+                                    </div>
+                                    <span class="badge-custom">BEST</span>
+                                </div>
+                                <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="subtitle">CONTACT</span>
+                <h2 class="section-title">Contact With Me</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="contact-card">
+                        <img src="https://via.placeholder.com/600x400/212428/ffffff?text=Contact+Image" class="contact-img" alt="Contact">
+                        <h3>Jubaer Hossain</h3>
+                        <p class="text-secondary mb-4">Chief Operating Officer</p>
+                        <p class="mb-4">I am available for freelance work. Connect with me via and call in to my account.</p>
+                        
+                        <p class="mb-2">Phone: <span class="text-white">+8801893032710</span></p>
+                        <p class="mb-4">Email: <span class="text-white">mdjubaerh8@gmail.com</span></p>
+                        
+                        <span class="social-label mt-4">FIND WITH ME</span>
+                        <div class="social-icons-group">
+                            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="contact-card">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="subtitle mb-2">YOUR NAME</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="subtitle mb-2">PHONE NUMBER</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="subtitle mb-2">EMAIL</label>
+                                <input type="email" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="subtitle mb-2">SUBJECT</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="subtitle mb-2">YOUR MESSAGE</label>
+                                <textarea class="form-control" rows="8"></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">SEND MESSAGE <i class="fas fa-arrow-right ms-2"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">INBIO</span>
+            <p class="text-secondary">© 2026. All rights reserved by Jubaer Hossain</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
