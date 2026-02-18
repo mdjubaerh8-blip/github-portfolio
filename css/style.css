@@ -1,139 +1,165 @@
-:root {
-    --primary: #2EC4C7;   /* Your teal color */
-    --dark: #0f0f0f;
-    --dark-alt: #161616;
-    --white: #ffffff;
+:root{
+--primary:#2EC4C7;
+--dark:#07111c;
+--dark2:#0d1b2a;
+--white:#ffffff;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--dark);
-    color: var(--white);
-    scroll-behavior: smooth;
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to right,#07111c,#0d1b2a);
+color:var(--white);
+scroll-behavior:smooth;
 }
 
-/* Navbar */
-.navbar {
-    background-color: var(--dark) !important;
+.navbar{
+background:transparent;
+padding:15px 0;
 }
 
-.navbar .nav-link {
-    color: var(--white) !important;
-    margin-left: 10px;
-    transition: 0.3s;
+.logo{
+font-weight:700;
+font-size:22px;
+color:white;
+text-decoration:none;
 }
 
-.navbar .nav-link:hover {
-    color: var(--primary) !important;
+.logo span{
+color:var(--primary);
 }
 
-/* Hero */
-.hero {
-    min-height: 100vh;
-    background: var(--dark);
-    padding-top: 120px;
+.nav-link{
+color:#cbd5e1;
+margin-left:20px;
 }
 
-.profile-img {
-    width: 190px;
-    height: 190px;
-    border-radius: 50%;
-    border: 4px solid var(--primary);
-    object-fit: cover;
-    box-shadow: 0 0 25px var(--primary);
+.nav-link:hover{
+color:var(--primary);
 }
 
-/* Sections */
-.section {
-    padding: 90px 0;
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
 }
 
-.section-title {
-    margin-bottom: 40px;
-    font-weight: 600;
-    color: var(--primary);
+.welcome{
+color:var(--primary);
+letter-spacing:2px;
+font-size:14px;
 }
 
-.bg-dark-alt {
-    background-color: var(--dark-alt);
+.hero-title{
+font-family:'Playfair Display',serif;
+font-size:60px;
+font-weight:700;
 }
 
-/* Accent text */
-.accent {
-    color: var(--primary);
-    font-weight: 500;
+.hero-title span{
+color:var(--primary);
 }
 
-/* Buttons */
-.btn-accent {
-    background-color: var(--primary);
-    color: var(--dark);
-    font-weight: 600;
-    border: none;
-    padding: 10px 22px;
-    transition: 0.3s;
+.subtitle{
+color:#94a3b8;
+margin-top:20px;
 }
 
-.btn-accent:hover {
-    background-color: var(--white);
-    color: var(--dark);
+.hero-text{
+margin:20px 0;
+color:#cbd5e1;
 }
 
-.btn-outline-light {
-    border: 2px solid var(--primary);
-    color: var(--primary);
+.btn-primary-custom{
+background:var(--primary);
+color:black;
+padding:10px 25px;
+border-radius:8px;
 }
 
-.btn-outline-light:hover {
-    background-color: var(--primary);
-    color: var(--dark);
+.btn-outline-custom{
+border:1px solid var(--primary);
+color:var(--primary);
+padding:10px 25px;
+border-radius:8px;
 }
 
-/* Cards */
-.custom-card {
-    background-color: var(--dark-alt);
-    border: 1px solid rgba(46,196,199,0.2);
-    color: var(--white);
-    border-radius: 12px;
-    transition: 0.3s ease;
+.btn-outline-custom:hover{
+background:var(--primary);
+color:black;
 }
 
-.custom-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary);
-    box-shadow: 0 10px 30px rgba(46,196,199,0.2);
+.social i{
+font-size:20px;
+margin-right:15px;
+color:#94a3b8;
+cursor:pointer;
 }
 
-/* Skill Boxes */
-.skill-box {
-    background: var(--dark-alt);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid rgba(46,196,199,0.2);
-    transition: 0.3s;
+.social i:hover{
+color:var(--primary);
 }
 
-.skill-box:hover {
-    border-color: var(--primary);
-    box-shadow: 0 8px 20px rgba(46,196,199,0.2);
+/* IMAGE */
+.image-wrapper{
+position:relative;
+display:inline-block;
 }
 
-/* Contact Form */
-.form-control {
-    background-color: var(--dark-alt);
-    border: 1px solid rgba(46,196,199,0.3);
-    color: var(--white);
+.profile-img{
+width:320px;
+height:320px;
+border-radius:50%;
+border:3px solid var(--primary);
+box-shadow:0 0 40px rgba(46,196,199,0.4);
+object-fit:cover;
 }
 
-.form-control:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 10px rgba(46,196,199,0.3);
-    background-color: var(--dark-alt);
-    color: var(--white);
+/* SECTIONS */
+.section{
+padding:100px 0;
 }
 
-/* Footer */
-footer {
-    background-color: var(--dark);
-    border-top: 1px solid rgba(46,196,199,0.2);
+.section-tag{
+color:var(--primary);
+font-size:14px;
+letter-spacing:2px;
+}
+
+.section-title{
+font-family:'Playfair Display',serif;
+font-size:42px;
+margin-top:10px;
+}
+
+.section-title span{
+color:var(--primary);
+}
+
+.dark-section{
+background:#08141f;
+}
+
+/* GLASS CARD */
+.glass-card{
+background:rgba(255,255,255,0.03);
+padding:30px;
+border-radius:15px;
+border:1px solid rgba(46,196,199,0.2);
+backdrop-filter:blur(10px);
+}
+
+/* SKILLS */
+.skill{
+margin-top:20px;
+}
+
+.progress{
+height:6px;
+background:#1e293b;
+margin-top:5px;
+}
+
+.progress-bar{
+background:var(--primary);
 }
